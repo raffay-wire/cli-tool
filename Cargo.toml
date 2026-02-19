@@ -1,0 +1,34 @@
+[package]
+name = "tps-cli"
+version = "0.1.0"
+edition = "2021"
+description = "Production-grade TPS measurement tool for Cosmos-based EVM chains"
+
+[[bin]]
+name = "tps-cli"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.12", features = ["json"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = { version = "0.4", features = ["serde"] }
+comfy-table = "7"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+anyhow = "1"
+alloy-primitives = "0.8"
+alloy-signer = "0.6"
+alloy-signer-local = "0.6"
+alloy-consensus = "0.6"
+alloy-network = "0.6"
+alloy-rpc-types = "0.6"
+alloy-sol-types = "0.8"
+rand = "0.8"
+csv = "1"
+
+[profile.release]
+opt-level = 3
+lto = true
